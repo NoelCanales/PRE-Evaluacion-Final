@@ -1,0 +1,17 @@
+{
+  "name": "premios-service",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "sqlite3": "^5.1.6"
+  },
+  "description": ""
+}
