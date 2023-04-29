@@ -4,12 +4,21 @@ services:
 
   premios:
     build: ./microservicios/premios-service
+    volumes:
+      - ./microservicios/premios-service:/app
+      - /app/node_modules
   
   perros:
     build: ./microservicios/perros-service
+    volumes:
+      - ./microservicios/perros-service:/app
+      - /app/node_modules
   
   razas:
     build: ./microservicios/razas-service
+    volumes:
+      - ./microservicios/razas-service:/app
+      - /app/node_modules
   
   nginx:
     image: nginx:latest

@@ -6,9 +6,8 @@
   "name": "perros-service",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon --legacy-watch index.js"
   },
   "keywords": [],
   "author": "",
