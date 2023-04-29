@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "3813de53-37be-43fe-9fa8-a5a58bf7bee7",
+		"name": "Endpoints Laboratorio Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16209675"
+	},
+	"item": [
+		{
+			"name": "Listar todos los campeonatos por categoria y pais",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delvolver  los premios segun lugar",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
