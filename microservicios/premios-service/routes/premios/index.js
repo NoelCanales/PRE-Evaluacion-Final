@@ -50,21 +50,37 @@ router.get("/PremiosID/:id", (req, res) => {
 });
 
 
+router.get("/campeonatoPaisCategoria2/:query", (req, res) => {
+  const premiosID = database.filter((Id) => {
+    return req.params.id == Id.id;
+  });
+
+const response = {
+  service: "Campeonatos",
+  architecture: "microservices",
+  data: premiosID,
+};
+
+// Enviamos la respuesta
+return res.send(response);
+});
+
+
 router.get("/campeonatoPaisCategoria/:query", (req, res) => {
   // Verificamos si el parámetro es un número (ID) o una cadena (nombre de perro)
   
   const id = Number(req.params.query);
-  const name = req.params.query;
+  const paiscompetencia = req.params.query;
     let idcampeonatos;
   if (!isNaN(id)) {
     // Si el parámetro es un número (ID), filtramos los perros por ID
-    perro = database.data.filter((campeonato) => {
-      return id == campeonato.id;
+    perro = database.filter((idcampeonatos) => {
+      return id == idcampeonatos.database.id;
     });
   } else {
     // Si el parámetro es una cadena (nombre de perro), filtramos los perros por nombre
-    perro = database.filter((data) => {
-      return data.categoria_ganada.includes(name);
+    perro = database.filter((id) => {
+      return idcampeonatos.categoria_ganada.includes(paiscompetencia);
     });
   }
 
