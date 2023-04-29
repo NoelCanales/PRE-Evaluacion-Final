@@ -92,7 +92,7 @@ router.get("/campeonatoCategoriaPais/:categoria/:pais", (req, res) => {
   return res.send(response);
 });
 
-
+//!Segundo ejercicio
 router.get("/Posicion/:lugar", (req,res) => {
   const FiltrarLugar = database.filter((lugar) =>{
     return lugar.lugar.includes(req.params.lugar)
@@ -112,6 +112,8 @@ router.get("/Posicion/:lugar", (req,res) => {
 
   return res.send(response);
 });
+
+
 
 
 
