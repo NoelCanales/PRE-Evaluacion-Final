@@ -50,51 +50,6 @@ router.get("/PremiosID/:id", (req, res) => {
 });
 
 
-router.get("/campeonatoPaisCategoria2/:query", (req, res) => {
-  const premiosID = database.filter((Id) => {
-    return req.params.id == Id.id;
-  });
-
-const response = {
-  service: "Campeonatos",
-  architecture: "microservices",
-  data: premiosID,
-};
-
-// Enviamos la respuesta
-return res.send(response);
-});
-
-
-router.get("/campeonatoPaisCategoria/:query", (req, res) => {
-  // Verificamos si el parámetro es un número (ID) o una cadena (nombre de perro)
-  
-  const id = Number(req.params.query);
-  const paiscompetencia = req.params.query;
-    let idcampeonatos;
-  if (!isNaN(id)) {
-    // Si el parámetro es un número (ID), filtramos los perros por ID
-    perro = database.filter((idcampeonatos) => {
-      return id == idcampeonatos.database.id;
-    });
-  } else {
-    // Si el parámetro es una cadena (nombre de perro), filtramos los perros por nombre
-    perro = database.filter((id) => {
-      return idcampeonatos.categoria_ganada.includes(paiscompetencia);
-    });
-  }
-
-  // Creamos un objeto de respuesta con los datos de los perros
-  const response = {
-    service: "Campeonatos",
-    architecture: "microservices",
-    data: idcampeonatos,
-  };
-
-  // Enviamos la respuesta
-  return res.send(response);
-});
-
 router.get("/raza/:raza", (req,res) => {
   const FiltrarPerros = data.dataLibrary.perros.filter((raza) =>{
     return raza.raza.includes(req.params.raza)
@@ -107,6 +62,59 @@ router.get("/raza/:raza", (req,res) => {
 
   return res.send(response);
 });
+
+
+//!Primer ejercicio
+router.get("/campeonatoCategoriaPais/:categoria/:pais", (req, res) => {
+
+  let campeonato;
+
+  if ((req.params.pais)) {
+    // Si el parámetro es un número (ID), filtramos los perros por ID
+    campeonato = database.filter((categoria_ganada) => {
+      return req.params.categoria == categoria_ganada.categoria_ganada;
+    });
+  } else {
+    // Si el parámetro es una cadena (nombre de perro), filtramos los perros por nombre
+    campeonato = database.filter((pais_competencia) => {
+      return pais_competencia.pais_competencia.includes(req.params.pais);
+    });
+  }
+
+  // Creamos un objeto de respuesta con los datos de los perros
+  const response = {
+    service: "Campeonatos",
+    architecture: "microservices",
+    data: campeonato,
+  };
+
+  // Enviamos la respuesta
+  return res.send(response);
+});
+
+
+router.get("/Posicion/:lugar", (req,res) => {
+  const FiltrarLugar = database.filter((lugar) =>{
+    return lugar.lugar.includes(req.params.lugar)
+  });
+  const lugares = FiltrarLugar.map(lugar => {
+    return { lugar: lugar.lugar, Premio: lugar.premio }
+  });
+ 
+
+  const response ={
+    service: "Premios y Posiciones",
+    architecture: " microservicios",
+    length : lugares.length,
+    data: lugares,
+
+  };
+
+  return res.send(response);
+});
+
+
+
 
 
 }
